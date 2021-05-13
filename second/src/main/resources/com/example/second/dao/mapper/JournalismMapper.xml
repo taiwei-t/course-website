@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.second.dao.JournalismDao">
+    <resultMap id="BaseResultMap" type="com.example.second.entity.Journalism">
+        <id column="uid" property="uid" jdbcType="BIGINT"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="pubDate" property="pubDate" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        uid, title, pubDate, content, author
+    </sql>
+
+    <select id="findAllJournalisms" resultType="com.example.second.entity.Journalism">
+        select * from journalism
+    </select>
+
+    <select id="findJournalismByTitle" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from journalism where title = #{title,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteJournalismsByIds">
+        delete from journalism where uid in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getCountJournalisms" resultType="java.lang.Integer">
+        select count(uid) as count from journalism
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from journalism
+        where uid = #{uid,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteJournalismById" parameterType="java.lang.Long">
+        delete from journalism
+        where uid = #{uid,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.second.entity.Journalism">
+        insert into journalism (uid, title, pubDate, contnet, author)
+        values (#{uid,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{pubDate,jdbcType=VARCHAR},
+        #{content,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addJournalism" parameterType="com.example.second.entity.Journalism">
+        insert into journalism
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="pubDate != null">
+                pubDate,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                #{uid,jdbcType=BIGINT},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="pubDate != null">
+                #{pubDate,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateJournalism" parameterType="com.example.second.entity.Journalism">
+        update journalism
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="pubDate != null">
+                pubDate = #{pubDate,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where uid = #{uid,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.second.entity.Journalism">
+        update journalism
+        set title = #{title,jdbcType=VARCHAR},
+        pubDate = #{pubDate,jdbcType=VARCHAR},
+        content = #{content,jdbcType=VARCHAR},
+        author = #{author,jdbcType=VARCHAR}
+        where uid = #{uid,jdbcType=BIGINT}
+    </update>
+</mapper>

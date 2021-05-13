@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.second.dao.CourseDao">
+    <resultMap id="BaseResultMap" type="com.example.second.entity.Course">
+        <id column="uid" property="uid" jdbcType="BIGINT"/>
+        <result column="course_no" property="course_no" jdbcType="VARCHAR"/>
+        <result column="course_name" property="course_name" jdbcType="VARCHAR"/>
+        <result column="course_brief" property="course_brief" jdbcType="VARCHAR"/>
+        <result column="curriculum_time" property="curriculum_time" jdbcType="DATE"/>
+        <result column="session_time" property="session_time" jdbcType="DATE"/>
+        <result column="course_classify" property="course_classify" jdbcType="VARCHAR"/>
+        <result column="teacher_id" property="teacher_id" jdbcType="BIGINT"/>
+        <result column="textbook" property="textbook" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        uid, course_no, course_name, course_brief, curriculum_time, session_time, course_classify, teacher_id, textbook
+    </sql>
+
+    <select id="findAllCourses" resultType="com.example.second.entity.Course">
+        select * from course
+    </select>
+
+    <select id="findCourseByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from course where course_name = #{course_name,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteCoursesByIds">
+        delete from course where uid in
+        <foreach collection="ids" item="uid" separator="," open="(" close=")">
+            #{uid}
+        </foreach>
+    </delete>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from course
+        where uid = #{uid,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteCourseById" parameterType="java.lang.Long">
+        delete from course
+        where uid = #{uid,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.second.entity.Course">
+        insert into course (uid, course_no, course_name, course_brief, curriculum_time, session_time,
+                            course_classify, teacher_id, textbook)
+        values (#{uid,jdbcType=BIGINT}, #{course_no,jdbcType=VARCHAR}, #{course_name,jdbcType=VARCHAR},
+        #{course_brief,jdbcType=VARCHAR}, #{curriculum_time,jdbcType=DATE}, #{session_time,jdbcType=DATE},
+                #{course_classify,jdbcType=VARCHAR},#{teacher_id,jdbcType=BIGINT},#{textbook,jdbcType=BIGINT})
+    </insert>
+    <insert id="addCourse" parameterType="com.example.second.entity.Course">
+        insert into course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="course_no != null">
+                course_no,
+            </if>
+            <if test="course_name != null">
+                course_name,
+            </if>
+            <if test="course_brief != null">
+                course_brief,
+            </if>
+            <if test="curriculum_time != null">
+                curriculum_time,
+            </if>
+            <if test="session_time != null">
+                session_time,
+            </if>
+            <if test="course_classify != null">
+                course_classify,
+            </if>
+            <if test="teacher_id != null">
+                teacher_id,
+            </if>
+            <if test="textbook != null">
+                textbook,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                #{uid,jdbcType=BIGINT},
+            </if>
+            <if test="course_no != null">
+                #{course_no,jdbcType=VARCHAR},
+            </if>
+            <if test="course_name != null">
+                #{course_name,jdbcType=VARCHAR},
+            </if>
+            <if test="course_brief != null">
+                #{course_brief,jdbcType=VARCHAR},
+            </if>
+            <if test="curriculum_time != null">
+                #{curriculum_time,jdbcType=DATE},
+            </if>
+            <if test="session_time != null">
+                #{session_time,jdbcType=DATE},
+            </if>
+            <if test="course_classify != null">
+                #{course_classify,jdbcType=VARCHAR},
+            </if>
+            <if test="teacher_id != null">
+                #{teacher_id,jdbcType=BIGINT},
+            </if>
+            <if test="textbook != null">
+                #{textbook,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateCourse" parameterType="com.example.second.entity.Course">
+        update course
+        <set>
+            <if test="uid != null">
+                uid=#{uid,jdbcType=BIGINT},
+            </if>
+            <if test="course_no != null">
+                course_no=#{course_no,jdbcType=VARCHAR},
+            </if>
+            <if test="course_name != null">
+                course_name=#{course_name,jdbcType=VARCHAR},
+            </if>
+            <if test="course_brief != null">
+                course_brief=#{course_brief,jdbcType=VARCHAR},
+            </if>
+            <if test="curriculum_time != null">
+                curriculum_time=#{curriculum_time,jdbcType=DATE},
+            </if>
+            <if test="session_time != null">
+                session_time=#{session_time,jdbcType=DATE},
+            </if>
+            <if test="course_classify != null">
+                course_classify=#{course_classify,jdbcType=VARCHAR},
+            </if>
+            <if test="teacher_id != null">
+                teacher_id=#{teacher_id,jdbcType=BIGINT},
+            </if>
+            <if test="textbook != null">
+                textbook=#{textbook,jdbcType=BIGINT},
+            </if>
+        </set>
+        where uid = #{uid,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.second.entity.Course">
+        update course
+        set course_no=#{course_no,jdbcType=VARCHAR},
+            course_name=#{course_name,jdbcType=VARCHAR},
+            course_brief=#{course_brief,jdbcType=VARCHAR},
+            curriculum_time=#{curriculum_time,jdbcType=DATE},
+            session_time=#{session_time,jdbcType=DATE},
+            course_classify=#{course_classify,jdbcType=VARCHAR},
+            teacher_id=#{teacher_id,jdbcType=BIGINT},
+            textbook=#{textbook,jdbcType=BIGINT}
+        where uid = #{uid,jdbcType=BIGINT}
+    </update>
+</mapper>
