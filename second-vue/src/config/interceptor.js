@@ -19,7 +19,7 @@ axios.interceptors.response.use((response)=>{
         Message.error({message: "权限不足"})
     } else if(error.response.status === 401){
         Message.error({message: "尚未登录，请登录"})
-        router.replace("/")
+        router.replace("/admin")
     } else {
         return Promise.reject(error.response)
         // Message.error({message: "未知错误"})

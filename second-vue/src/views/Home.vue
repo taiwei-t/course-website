@@ -1,12 +1,28 @@
 <template>
   <div>
-    <el-header>Home</el-header>
+    <el-header>
+      <Header></Header>
+    </el-header>
+
+    <el-main style="overflow: visible;padding: 20px 180px">
+      <div>
+        <router-view></router-view>
+      </div>
+    </el-main>
+
+    <el-footer style="padding: 0;height: auto;">
+      <Footer></Footer>
+    </el-footer>
   </div>
 </template>
 
 <script>
+
+import Header from "@/views/Header";
+import Footer from "@/views/Footer";
 export default {
-  name: "Home"
+  name: "Home",
+  components: {Footer, Header},
 }
 </script>
 

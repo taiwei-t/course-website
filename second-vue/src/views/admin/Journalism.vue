@@ -22,6 +22,7 @@
         <el-table-column
             prop="title"
             label="标题"
+            show-overflow-tooltip
             width="180">
         </el-table-column>
         <el-table-column
@@ -32,6 +33,7 @@
         <el-table-column
             prop="content"
             label="内容"
+            show-overflow-tooltip
             width="180">
         </el-table-column>
         <el-table-column

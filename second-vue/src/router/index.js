@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from "../views/Home"
+import Home from "@/views/Home";
+import Teacher from "@/views/Teacher";
+import Course from "@/views/Course";
+import News from "@/views/News";
+import About from "@/views/About";
+import HomeMain from "../views/Home-Main"
 import adminHome from '../views/admin/Home'
 import Login from '../views/admin/Login'
 
@@ -14,8 +19,28 @@ const routes = [
     children: [
       {
         path: '/home',
-        name: 'Home',
-        component: Home
+        name: 'Home-Main',
+        component: HomeMain
+      },
+      {
+        path: '/teacher',
+        name: 'Teacher',
+        component: Teacher
+      },
+      {
+        path: '/course',
+        name: 'Course',
+        component: Course
+      },
+      {
+        path: '/news',
+        name: 'News',
+        component: News
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: About
       }
     ]
   },

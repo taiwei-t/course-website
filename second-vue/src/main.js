@@ -12,18 +12,20 @@ Vue.prototype.$axios = axios
 Vue.use(ElementUI)
 
 router.beforeEach((to,from,next)=> {
-  if(to.path === '/') {
-    next();
-  } else if(to.path === '/admin') {
-    next();
-  } else {
-    if (window.sessionStorage.getItem("user")) {
-      findAllMenus(router,store)
-      next();
+    if(to.path === '/admin'){
+        next();
+    } else if(to.path.startsWith('/admin')) {
+        if (window.sessionStorage.getItem("user")) {
+            findAllMenus(router,store)
+            next();
+	    } else {
+            next("/?redirect="+to.path)
+        }
+    } else if(to.path === '/'){
+        next("/home")
     } else {
-      next("/?redirect="+to.path)
+        next();
     }
-  }
 })
 
 new Vue({
