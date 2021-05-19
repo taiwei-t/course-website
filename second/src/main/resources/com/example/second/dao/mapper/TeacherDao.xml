@@ -41,20 +41,20 @@
                `research`,
                `hobby`,
                `college`
-        from test.teacher
+        from teacher
         where uid = #{uid}
     </select>
 
     <select id="findAllTeachers" resultMap="TeacherMap">
-        select * from test.teacher
+        select * from teacher
     </select>
 
     <select id="findTeacherByName" resultMap="TeacherMap">
-        select * from test.teacher where name = #{name}
+        select * from teacher where name = #{name}
     </select>
 
     <delete id="deleteTeacherByIds" parameterType="com.example.second.entity.Teacher">
-        delete from test.teacher where uid in
+        delete from teacher where uid in
         <foreach collection="ids" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>
@@ -62,13 +62,13 @@
 
     <!--新增所有列-->
     <insert id="insert" parameterType="com.example.second.entity.Teacher">
-        insert into test.teacher(`uid`, `name`, `age`, `sex`, `party`, `address`, `phone`, `emil`, `rank`, `degree`, `course`, `brief`, `hiredate`, `evaluation`,`research`,`hobby`,`college`)
+        insert into teacher(`uid`, `name`, `age`, `sex`, `party`, `address`, `phone`, `emil`, `rank`, `degree`, `course`, `brief`, `hiredate`, `evaluation`,`research`,`hobby`,`college`)
         values (#{uid}, #{name}, #{age}, #{sex}, #{party}, #{address}, #{phone}, #{emil}, #{rank}, #{degree}, #{course}, #{brief}, #{hiredate}, #{evaluation},#{research},#{hobby},#{college})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update test.teacher
+        update teacher
         <set>
             <if test="name != null">
                 `name` = #{name,jdbcType=VARCHAR},
@@ -125,7 +125,7 @@
     <!--通过主键删除-->
     <delete id="deleteById" parameterType="java.lang.Long">
         delete
-        from test.teacher
+        from teacher
         where uid = #{uid,jdbcType=BIGINT}
     </delete>
 
