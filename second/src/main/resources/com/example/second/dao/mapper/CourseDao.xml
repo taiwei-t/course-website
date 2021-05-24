@@ -24,6 +24,14 @@
         select * from course where course_name = #{course_name,jdbcType=VARCHAR}
     </select>
 
+    <select id="findCourseName" resultType="map">
+        select course_no, course_name, course_classify from course
+    </select>
+
+    <select id="findCourseByNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from course where course_no = #{course_no,jdbcType=VARCHAR}
+    </select>
+
     <delete id="deleteCoursesByIds">
         delete from course where uid in
         <foreach collection="ids" item="uid" separator="," open="(" close=")">

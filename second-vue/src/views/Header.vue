@@ -1,6 +1,6 @@
 <template>
   <div class="header" >
-    <p class="title">
+    <p class="title" @click="clickTitle">
       <span class="course">高校</span>
       <span class="website">课程网站</span>
     </p>
@@ -19,7 +19,10 @@ export default {
   name: "Header",
   methods: {
     selectMenu(index){
-      this.$router.push(index);
+      this.$router.replace(index);
+    },
+    clickTitle() {
+      this.$router.replace("/home");
     }
   }
 }
@@ -32,6 +35,7 @@ export default {
   font-size: 36px;
   font-weight: 400;
   color: black;
+  cursor: pointer;
 }
 .course{
   color: cornflowerblue;
@@ -53,5 +57,6 @@ export default {
 .header{
   width: 1000px;
   margin: 0 auto;
+  background-color: #505458;
 }
 </style>

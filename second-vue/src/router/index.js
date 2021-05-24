@@ -5,6 +5,9 @@ import Teacher from "@/views/Teacher";
 import Course from "@/views/Course";
 import News from "@/views/News";
 import About from "@/views/About";
+import TeacherInfo from "@/views/TeacherInfo";
+import CourseDetail from "@/views/CourseDetail";
+import NewsDetail from "@/views/NewsDetail";
 import HomeMain from "../views/Home-Main"
 import adminHome from '../views/admin/Home'
 import Login from '../views/admin/Login'
@@ -41,8 +44,26 @@ const routes = [
         path: '/about',
         name: 'About',
         component: About
-      }
+      },
+      {
+        path: '/couresedetail',
+        name: 'CourseDetail',
+        component: CourseDetail,
+        hidden:true
+      },
     ]
+  },
+  {
+    path: '/teacherinfo',
+    name: 'TeacherInfo',
+    component: TeacherInfo,
+    hidden:true
+  },
+  {
+    path: '/newsDetail',
+    name: 'NewsDetail',
+    component: NewsDetail,
+    hidden:true
   },
   {
     path: '/admin',
@@ -52,7 +73,7 @@ const routes = [
   },
   {
     path: '/admin/home',
-    name: 'Home',
+    name: 'adminHome',
     component: adminHome,
     hidden: true
   }

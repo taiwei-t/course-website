@@ -27,6 +27,10 @@ public class MyFilter implements FilterInvocationSecurityMetadataSource {
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) object).getRequestUrl();
         List<Menu> menus = menuService.getAllMenusWithRole();
+        if(antPathMatcher.match("/public/**", requestUrl)){
+            System.out.println("public");
+            return SecurityConfig.createList("ROLE_public");
+        }
         for (Menu menu : menus) {
             if (antPathMatcher.match(menu.getPattern(),requestUrl)) {
                 List<Role> roles = menu.getRoles();

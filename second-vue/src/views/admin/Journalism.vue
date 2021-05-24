@@ -168,7 +168,7 @@ export default {
     },
     searchJournalismByName () {
         if (this.journalismName !== '') {
-            this.$axios.get("/journalism/findJournalismByName?name="+this.journalismName).then( (resp)=> {
+            this.$axios.get("/journalism/findJournalismByTitle?name="+this.journalismName).then( (resp)=> {
                 this.journalisms = resp.data;
             }).catch( (error)=>{
                 this.$message({

@@ -51,7 +51,7 @@ public class JournalismServiceBean implements JournalismService {
         this.journalismDao.updateJournalism(journalism);
     }
 
-    public List<Journalism> findJournalismByTitle(String title) {
+    public Journalism findJournalismByTitle(String title) {
         return this.journalismDao.findJournalismByTitle(title);
     }
 

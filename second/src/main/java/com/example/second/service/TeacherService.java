@@ -3,6 +3,7 @@ package com.example.second.service;
 import com.example.second.entity.Teacher;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Teacher)表服务接口
@@ -21,15 +22,6 @@ public interface TeacherService {
      * @return 实例对象
      */
     Teacher queryById(Long uid);
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    List<Teacher> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -59,4 +51,7 @@ public interface TeacherService {
 
     Integer deleteTeacherByIds(Integer[] ids);
 
+    Teacher findTeacherById(Long uid);
+
+    List<Map<String, Object>> findTeacherName();
 }

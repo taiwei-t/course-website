@@ -26,7 +26,7 @@ public interface JournalismDao {
 
     int updateByPrimaryKey(Journalism journalism);
 
-    List<Journalism> findJournalismByTitle(String name);
+    Journalism findJournalismByTitle(String name);
 
     Integer deleteJournalismsByIds(@Param("ids") Integer[] ids);
 

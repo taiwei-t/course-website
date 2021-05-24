@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -43,6 +44,16 @@ public class CourseServiceBean implements CourseService {
 
     public Integer deleteCoursesByIds(Integer[] ids) {
         return this.courseDao.deleteCoursesByIds(ids);
+    }
+
+    @Override
+    public Course findCourseByNo(String no) {
+        return this.courseDao.findCourseByNo(no);
+    }
+
+    @Override
+    public List<Map<String, Object>> findCourseName() {
+        return this.courseDao.findCourseName();
     }
 
 }

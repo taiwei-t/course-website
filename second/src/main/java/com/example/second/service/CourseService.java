@@ -3,6 +3,7 @@ package com.example.second.service;
 import com.example.second.entity.Course;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface CourseService {
@@ -18,4 +19,8 @@ public interface CourseService {
     List<Course> findCourseByName(String name);
 
     public Integer deleteCoursesByIds(Integer[] ids);
+
+    Course findCourseByNo(String no);
+
+    List<Map<String, Object>> findCourseName();
 }

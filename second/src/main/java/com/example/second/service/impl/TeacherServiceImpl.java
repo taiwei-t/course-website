@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Teacher)表服务实现类
@@ -25,6 +26,16 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Integer deleteTeacherByIds(Integer[] ids) {
         return this.teacherDao.deleteTeacherByIds(ids);
+    }
+
+    @Override
+    public Teacher findTeacherById(Long uid) {
+        return this.teacherDao.queryById(uid);
+    }
+
+    @Override
+    public List<Map<String, Object>> findTeacherName() {
+        return this.teacherDao.findTeacherName();
     }
 
     @Override
@@ -46,18 +57,6 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Teacher queryById(Long uid) {
         return this.teacherDao.queryById(uid);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<Teacher> queryAllByLimit(int offset, int limit) {
-        return this.teacherDao.queryAllByLimit(offset, limit);
     }
 
     /**

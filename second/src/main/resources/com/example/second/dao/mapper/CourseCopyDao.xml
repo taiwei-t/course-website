@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.second.dao.CourseCopyDao">
+
+    <resultMap type="com.example.second.entity.CourseCopy" id="CourseCopyMap">
+        <result property="courseNo" column="course_no" jdbcType="VARCHAR"/>
+        <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+        <result property="courseClassify" column="course_classify" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CourseCopyMap">
+        select
+        course_no, course_name, course_classify
+        from course_copy
+    </select>
+
+</mapper>
+

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Mapper
@@ -15,6 +16,8 @@ public interface CourseDao {
     List<Course> findAllCourses();
 
     int deleteCourseById(Long uid);
+
+    Course findCourseByNo(String no);
 
     int insert(Course course);
 
@@ -30,5 +33,5 @@ public interface CourseDao {
 
     Integer deleteCoursesByIds(@Param("ids") Integer[] ids);
 
-    int getCountCourses();
+    List<Map<String, Object>> findCourseName();
 }

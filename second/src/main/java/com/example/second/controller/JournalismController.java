@@ -56,7 +56,7 @@ public class JournalismController {
      * 根据标题查找新闻
      */
     @GetMapping("/findJournalismByTitle")
-    public List<Journalism> findJournalismByTitle(@RequestParam String title) {
+    public Journalism findJournalismByTitle(@RequestParam String title) {
         return this.journalismService.findJournalismByTitle(title);
     }
 

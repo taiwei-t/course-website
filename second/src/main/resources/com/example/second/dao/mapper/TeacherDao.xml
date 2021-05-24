@@ -53,6 +53,10 @@
         select * from teacher where name = #{name}
     </select>
 
+    <select id="findTeacherName" resultType="map">
+        select `uid`,`name`,`rank` from teacher
+    </select>
+
     <delete id="deleteTeacherByIds" parameterType="com.example.second.entity.Teacher">
         delete from teacher where uid in
         <foreach collection="ids" item="id" separator="," open="(" close=")">
@@ -128,6 +132,5 @@
         from teacher
         where uid = #{uid,jdbcType=BIGINT}
     </delete>
-
 </mapper>
 
