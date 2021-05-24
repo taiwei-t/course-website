@@ -55,6 +55,7 @@
         <template v-for="n in news">
           <ul style="padding-left: 20px;padding-right: 100px">
             <li @click="onRowClick(n.title)" style="cursor:pointer;">
+              <i class="el-icon-paperclip" style="padding-right: 10px"></i>
               <a>{{n.title}}
               <span style="float: right">[{{n.pubDate}}]</span>
               </a>
