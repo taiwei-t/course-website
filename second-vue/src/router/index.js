@@ -51,20 +51,21 @@ const routes = [
         component: CourseDetail,
         hidden:true
       },
+      {
+        path: '/teacherinfo',
+        name: 'TeacherInfo',
+        component: TeacherInfo,
+        hidden:true
+      },
+      {
+        path: '/newsDetail',
+        name: 'NewsDetail',
+        component: NewsDetail,
+        hidden:true
+      },
     ]
   },
-  {
-    path: '/teacherinfo',
-    name: 'TeacherInfo',
-    component: TeacherInfo,
-    hidden:true
-  },
-  {
-    path: '/newsDetail',
-    name: 'NewsDetail',
-    component: NewsDetail,
-    hidden:true
-  },
+
   {
     path: '/admin',
     name: 'Login',

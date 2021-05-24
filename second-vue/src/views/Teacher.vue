@@ -13,7 +13,7 @@
       共{{this.teachers.length}}名教师
     </p>
     <!-- 网格布局显示 -->
-    <div v-if="teachers.length>0" style="display: grid;grid-template-columns: repeat(3, 1fr);">
+    <div v-if="teachers.length>0" style="display: grid;grid-template-columns: repeat(4, 25%);">
       <template v-for="t in teachers">
         <!-- 单个item -->
         <div class="teacher" @click="clickTeacher(t.uid)">
@@ -39,7 +39,8 @@ export default {
           'https://tva1.sinaimg.cn/large/007YLcQ6ly1gpsyszjgvoj31hc0u0guj.jpg',
         'https://tva1.sinaimg.cn/large/007YLcQ6ly1gpsyszjgvoj31hc0u0guj.jpg',
       ],
-      teachers: []
+      teachers: [],
+      ids: []
     }
   },
   created() {
@@ -50,7 +51,10 @@ export default {
       this.$axios.get("/public/findAllTeacher")
           .then((res) => {
             this.teachers = res.data
-            console.log(this.teachers)
+            // console.log(this.teachers)
+            for (let i in this.teachers){
+              this.ids.push(this.teachers[i].uid)
+            }
           })
           .catch(error => {
             this.$message({
@@ -60,8 +64,21 @@ export default {
           });
     },
     clickTeacher(id) {
-      let routeData = this.$router.resolve({path:'/teacherinfo', query: {id: id}})
-      window.open(routeData.href, "_blank")
+      // let routeData = this.$router.resolve({path:'/teacherinfo', query: {id: id}})
+      // window.open(routeData.href, "_blank")
+      this.$router.push({path:'/teacherinfo', query: {id: id, ids:this.ids.join(',')}})
+      this.backTop()
+    },
+    backTop(){ //回到顶部
+      let timer = setInterval(function(){
+        let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let ispeed = Math.floor(-osTop / 5);
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+        this.isTop = true;
+        if(osTop === 0){
+          clearInterval(timer);
+        }
+      },30)
     }
   }
 }

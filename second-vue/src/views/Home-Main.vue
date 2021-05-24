@@ -80,7 +80,8 @@ export default {
       ],
       courses: [],
       teachers: [],
-      news: []
+      news: [],
+      ids: []
     }
   },
   created() {
@@ -96,8 +97,9 @@ export default {
       this.$router.push({path:'/couresedetail', query: {no: no}})
     },
     clickTeacher(id) {
-      let routeData = this.$router.resolve({path:'/teacherinfo', query: {id: id}})
-      window.open(routeData.href, "_blank")
+      // let routeData = this.$router.resolve({path:'/teacherinfo', query: {id: id}})
+      // window.open(routeData.href, "_blank")
+      this.$router.push({path:'/teacherinfo', query: {id: id, ids:this.ids.join(',')}})
     },
     onRowClick(title){
       this.$router.push({path:"/newsDetail",
@@ -133,6 +135,9 @@ export default {
       this.$axios.get("/public/findExcellentTeacher")
           .then((res) => {
             this.teachers = res.data
+            for (let i in this.teachers){
+              this.ids.push(this.teachers[i].uid)
+            }
           })
           .catch(error => {
             this.$message({

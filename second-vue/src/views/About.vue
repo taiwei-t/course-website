@@ -1,5 +1,5 @@
 <template>
-  <div  style="height: 480px">关于我们</div>
+  <div style="height: 550px">关于我们</div>
 </template>
 
 <script>

@@ -1,26 +1,43 @@
 <template>
   <div>
+    <el-page-header
+        @back="goBack"
+        style="width: 100%">
+    </el-page-header>
+      <div>
       <template v-model="journalism">
         <ul style="padding-left: 20px;padding-right: 100px">
           <!--标题和发布日期-->
-          <h1>{{journalism.title}}</h1>
+          <h1 align="center">{{journalism.title}}</h1>
           <p align="right">{{journalism.pubDate}}</p>
           <hr></hr>
 
-          <!--新闻内容-->
-          <span v-html="replaceWithBr(journalism.content)"></span>
+          <!--新闻内容,以html格式插入值-->
+          <p v-html="replaceWithBr(journalism.content)"></p>
           <hr></hr>
 
           <!--发表人-->
           <p align="right">{{journalism.author}}</p>
         </ul>
       </template>
-<!--    <p align="right">{{journalismTitles}}</p>-->
-    <p align="right">{{preIndex}}</p>
-    <p align="right">{{currentIndex}}</p>
-    <p align="right">{{nextIndex}}</p>
-    <p v-if="preIndex !== -1" align="left" @click="goPreJournalism">上一篇：{{journalismTitles[preIndex]}}</p>
-    <p v-if="nextIndex !== -1" align="left" @click="goNextJournalism">下一篇：{{journalismTitles[nextIndex]}}</p>
+<!--        <p align="left">titles:{{journalismTitles}}</p>-->
+<!--        <p align="right">length:{{journalismTitles.length}}</p>-->
+<!--        <p align="right">preIndex:{{preIndex}}</p>-->
+<!--        <p align="right" style="cursor: pointer">currentIndex:{{currentIndex}}</p>-->
+<!--        <p align="right" style="cursor: pointer">nextIndex:{{nextIndex}}</p>-->
+      <p v-if="preIndex !== -1"
+         style="cursor: pointer"
+         align="left"
+         @click="goPreJournalism">
+        上一篇：{{journalismTitles[preIndex]}}
+      </p>
+      <p v-if="nextIndex !== -1"
+         style="cursor: pointer"
+         align="left"
+         @click="goNextJournalism">
+        下一篇：{{journalismTitles[nextIndex]}}
+      </p>
+      </div>
   </div>
 </template>
 
@@ -40,7 +57,6 @@ export default {
   created(){
       this.init()
       this.searchJournalismByName()
-      this.replaceWithBr()
   },
   methods: {
     init(){
@@ -68,21 +84,12 @@ export default {
     replaceWithBr(str) {
       return  str ? str.replace(/\n|\r/g, '<br/>') : ''
     },
-    //判断前一篇和后一片新闻的index是否越界
-    //未越界 : 返回True，越界反之
-    isNextIndexOutOfIndex(){
-      return this.nextIndex !== -1
-    },
-    isPreIndexOutOfIndex(){
-      return this.preIndex !== -1
-    },
     goPreJournalism() {
       //更新索引
       this.currentIndex--;
-      if (this.isNextIndexOutOfIndex())
-        this.nextIndex --;
-      if(this.isPreIndexOutOfIndex())
-        this.preIndex --;
+
+      this.nextIndex = this.currentIndex +1;
+      this.preIndex = this.currentIndex -1;
 
       //更新内容
       this.currentJournalismTitle = this.journalismTitles[this.currentIndex]
@@ -93,15 +100,19 @@ export default {
     goNextJournalism(){
       //更新索引
       this.currentIndex++;
-      if (this.isNextIndexOutOfIndex())
-        this.nextIndex ++;
-      if(this.isPreIndexOutOfIndex())
-        this.preIndex ++;
+      this.preIndex = this.currentIndex -1;
+      if (this.currentIndex == (this.journalismTitles.length -1))
+        this.nextIndex = -1
+      else
+        this.nextIndex = this.currentIndex + 1;
 
       //更新内容
       this.currentJournalismTitle = this.journalismTitles[this.currentIndex]
 
       this.searchJournalismByName()
+    },
+    goBack() {
+      this.$router.back()
     }
   }
 }

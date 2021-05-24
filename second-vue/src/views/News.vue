@@ -1,5 +1,5 @@
 <template>
-          <div>
+          <div style="height: 550px">
             <el-table
                 :data="journalisms.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                 stripe
@@ -101,6 +101,7 @@ export default {
         str += this.journalisms[i].title
         str += '/'
       }
+      str = str.slice(0,str.length-1)
       return str
     }
   }
