@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div style="min-height: 530px">
     <p style="padding: 20px;font-size: 16px;border-bottom: solid #d5d7d9 3px">
       搜索到{{this.course.length}}门课程
     </p>
     <!-- 网格布局显示课程 -->
     <div v-if="course.length>0" style="display: grid;grid-template-columns: repeat(3, 1fr);">
-      <template v-for="c in course">
+      <template
+          v-for="c in course.slice((currentPage-1)*pageSize, (currentPage*pageSize > total)?total:currentPage*pageSize)">
         <!-- 单个课程item -->
         <div class="course" @click="clickCourse(c.course_no)">
           <h3>{{c.course_name}}</h3>
@@ -23,9 +24,11 @@
     <!-- 分页器 -->
     <div align="center">
       <el-pagination
-          :page-size="3"
+          @current-change="currentChange"
+          :page-size="pageSize"
           layout="prev, pager, next"
-          :total="20">
+          background
+          :total="total">
       </el-pagination>
     </div>
   </div>
@@ -36,7 +39,10 @@ export default {
   name: "Course",
   data() {
     return{
-      course: []
+      course: [],
+      pageSize: 9, // 每页条目数
+      currentPage: 1, // 当前页码，初始为1
+      total: 0 // 条目总数，初始为0，请求数据之后等于数据长度
     }
   },
   created() {
@@ -47,7 +53,8 @@ export default {
       this.$axios.get("/public/findAllCourse")
           .then((res) => {
             this.course = res.data
-            console.log(this.course)
+            this.total = this.course.length
+            // console.log(this.course)
           })
           .catch(error => {
             this.$message({
@@ -59,6 +66,9 @@ export default {
     clickCourse(no) {
       this.$router.push({path:'/couresedetail', query: {no: no}})
     },
+    currentChange(current) {
+      this.currentPage = current
+    }
   }
 }
 </script>

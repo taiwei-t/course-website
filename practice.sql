@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 25/05/2021 18:57:25
+ Date: 25/05/2021 19:37:59
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `course`  (
   `teacher_id` bigint NOT NULL COMMENT '授课老师',
   `textbook` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '教材',
   PRIMARY KEY (`uid`, `course_no`, `teacher_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of course
@@ -46,6 +46,8 @@ INSERT INTO `course` VALUES (1, '100006', '园林设计', '园林设计就是在
 INSERT INTO `course` VALUES (2, '100007', 'C语言程序设计', 'C语言程序设计是计算机基础课程', '2018-05-13', '2021-05-13', '计算机', 2, '《C语言程序设计》');
 INSERT INTO `course` VALUES (3, '100008', '操作系统', '操作系统课讲解操作系统中如何管理和协调应用程序对计算机系统中软硬件资源的使用。', '2020-05-18', '2021-01-22', '计算机', 1, '《操作系统课》');
 INSERT INTO `course` VALUES (4, '100009', '农药学', '农药是人类与有害生物斗争的法宝，更是世界粮食安全生产和人类健康生活的保障，在病、虫、草、鼠等有害生物的综合治理中具有不可替代的作用。《农药学》是植保专业本科生的专业核心课，同时也是农学、园艺和林学等专业的必修或选修课，具有农业化学与生物学、环境科学、农学等学科交叉特点，兼备理论性和实践性，对从事农药研发、推广应用、流通管理等领域的专业人员和科技工作者也具有较强的学习和参考价值。开启农药学课程学习，中国农业大学植物保护学院二级教授领衔教学团队，将带你一起领略农药学这一交叉学科的风采！', '2020-05-18', '2021-05-15', '农林园艺', 1, '《农药学》');
+INSERT INTO `course` VALUES (5, '100010', '大数据基础与应用', '本课程介绍大数据的基础知识、数据分析的基本流程和大数据在各个行业的应用情况；涵盖了编程语言、分析算法、计算框架、数据可视化等众多内容。此外，本课程基于华为公有云提供在线实践内容，使用浏览器即可动手体验大数据分析的各个环节。不会编程？没有计算资源？都不是问题，只要你有时间！', '2019-05-12', '2020-05-21', '计算机', 1, '《大数据基础与应用》');
+INSERT INTO `course` VALUES (6, '100011', 'Python语言程序设计', '计算机是运算工具，更是创新平台，高效有趣地利用计算机需要更简洁实用的编程语言。Python简洁却强大、简单却专业，它是当今世界最受欢迎的编程语言，学好它终身受用。请跟随我们，学习并掌握Python语言，一起动起来，站在风口、享受创新！', '2020-05-04', '2021-05-04', '计算机', 1, '《Python语言程序设计》');
 
 -- ----------------------------
 -- Table structure for course_copy
@@ -197,7 +199,7 @@ CREATE TABLE `student_copy`  (
   `age` int NULL DEFAULT NULL,
   `sex` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of student_copy
@@ -215,7 +217,7 @@ CREATE TABLE `student_count`  (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `count` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of student_count
