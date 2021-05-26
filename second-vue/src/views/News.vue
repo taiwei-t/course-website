@@ -1,5 +1,5 @@
 <template>
-          <div style="min-height: 540px">
+          <div style="min-height: 480px">
             <el-table
                 :data="journalisms.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                 highlight-current-row

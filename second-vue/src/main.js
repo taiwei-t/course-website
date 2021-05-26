@@ -6,6 +6,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import store from './store'
 import {findAllMenus} from "./config/menu";
+import "./common/style.css"
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

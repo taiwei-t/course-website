@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 540px">
+  <div style="min-height: 480px">
     <el-page-header
         @back="goBack"
         style="width: 100%">

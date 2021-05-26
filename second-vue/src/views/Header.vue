@@ -1,10 +1,14 @@
 <template>
   <div class="header" >
-    <p class="title" @click="clickTitle">
-      <span class="course">高校</span>
-      <span class="website">课程网站</span>
-    </p>
-    <el-menu mode="horizontal" @select="selectMenu">
+      <div class="title" @click="clickTitle">
+        <img src="../assets/image/logo.png">
+        <p class="website">在线精品课程</p>
+      </div>
+    <el-menu mode="horizontal"
+             router
+             background-color="#1357ac"
+             text-color="#fff"
+             active-text-color="#ffd04b">
       <el-menu-item index="/home">首页</el-menu-item>
       <el-menu-item index="/teacher">教师团队</el-menu-item>
       <el-menu-item index="/course">精品课程</el-menu-item>
@@ -18,9 +22,6 @@
 export default {
   name: "Header",
   methods: {
-    selectMenu(index){
-      this.$router.replace(index);
-    },
     clickTitle() {
       this.$router.replace("/home");
     }
@@ -30,33 +31,31 @@ export default {
 
 <style scoped>
 .title{
-  margin: 20px auto;
   float: left;
-  font-size: 36px;
+  margin: 10px auto;
   font-weight: 400;
   color: black;
   cursor: pointer;
 }
-.course{
-  color: cornflowerblue;
-  font-family: 楷体;
-  font-weight: bolder;
-}
 .website{
-  color: dimgray;
-  font-family: 新宋体;
+  float: right;
+  margin-top: 40px;
+  margin-left: 10px;
+  color: #ffffff;
+  font-size: 32px;
+  font-family: 华文楷体;
+
 }
 .el-menu {
   float: right;
-  margin: 20px auto;
+  margin-top: 60px;
 }
 .el-menu-item{
   font-size: 20px;
   color: black;
 }
 .header{
-  width: 1000px;
-  margin: 0 auto;
-  background-color: #505458;
+  height: 120px;
+  margin: 0 200px;
 }
 </style>

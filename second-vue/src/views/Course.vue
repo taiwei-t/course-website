@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 530px">
+  <div style="min-height: 480px">
     <p style="padding: 20px;font-size: 16px;border-bottom: solid #d5d7d9 3px">
       搜索到{{this.course.length}}门课程
     </p>

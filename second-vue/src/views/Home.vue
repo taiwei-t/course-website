@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-header>
+    <el-header style="padding: 0;height: 120px;background-color: #1357ac;position: relative">
       <Header></Header>
     </el-header>
 
