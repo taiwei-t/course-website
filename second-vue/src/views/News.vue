@@ -1,5 +1,5 @@
 <template>
-          <div style="height: 550px">
+          <div style="min-height: 540px">
             <el-table
                 :data="journalisms.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                 highlight-current-row
@@ -30,8 +30,8 @@
                            :total="total"
                            background>
             </el-pagination>
-            <p>journalisms.length:{{this.journalisms.length}}</p>
-            <p>this.total:{{this.total}}</p>
+<!--            <p>journalisms.length:{{this.journalisms.length}}</p>-->
+<!--            <p>this.total:{{this.total}}</p>-->
           </div>
 </template>
 
@@ -48,13 +48,13 @@ export default {
   },
   created(){
     this.findAllJournalisms();
-    // this.total = this.journalisms.length
   },
   methods: {
     findAllJournalisms () {
       this.$axios.get("/journalism/findAllJournalisms")
           .then((res) => {
             this.journalisms = res.data
+            this.total = this.journalisms.length
           })
           .catch(error => {
             this.$message({
