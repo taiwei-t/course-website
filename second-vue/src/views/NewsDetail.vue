@@ -9,7 +9,7 @@
         <ul style="padding-left: 20px;padding-right: 100px">
           <!--标题和发布日期-->
           <h1 align="center" >{{journalism.title}}</h1>
-          <p align="right" >{{journalism.pubDate}}</p>
+          <p align="right" style="color: #949699">{{journalism.pubDate}}</p>
           <hr></hr>
 
           <!--新闻内容,以html格式插入值-->
@@ -20,7 +20,7 @@
           <hr></hr>
 
           <!--发表人/来源-->
-          <p align="right">来源:{{journalism.author}}</p>
+          <p align="right" style="color: #949699">来源:{{journalism.author}}</p>
         </ul>
       </template>
 <!--        <p align="left">titles:{{journalismTitles}}</p>-->
@@ -28,18 +28,18 @@
 <!--      <p align="right">preIndex:{{preIndex}}</p>-->
 <!--      <p align="right" style="cursor: pointer">currentIndex:{{currentIndex}}</p>-->
 <!--      <p align="right" style="cursor: pointer">nextIndex:{{nextIndex}}</p>-->
-      <p v-if="preIndex !== -1"
+      <a v-if="preIndex !== -1"
          style="cursor: pointer"
          align="left"
          @click="goPreJournalism">
         上一篇：{{journalismTitles[preIndex]}}
-      </p>
-      <p v-if="nextIndex !== -1"
+      </a>
+      <a v-if="nextIndex !== -1"
          style="cursor: pointer"
          align="left"
          @click="goNextJournalism">
         下一篇：{{journalismTitles[nextIndex]}}
-      </p>
+      </a>
       </div>
   </div>
 </template>
@@ -124,6 +124,9 @@ export default {
 <style scoped>
 .textIndent{
   text-indent: 2em
+}
+a:hover{
+  color: #4089e5;
 }
 </style>
 

@@ -12,17 +12,19 @@
 
     <el-container>
       <!-- 推荐课程 -->
-      <el-container style="flex-direction:column;margin: 15px 15px 15px 0;background-color: rgba(250,250,250,.8);border-radius: 10px">
+      <el-container style="flex-direction:column;margin: 15px 15px 15px 0;background-color: rgba(250,250,250,.5);border-radius: 10px">
         <div>
-          <h2 style="padding-left: 20px;">推荐课程
+          <h2 style="padding-left: 20px;">
+            <img src="../assets/image/pic1.png" style="margin-bottom: -10px;margin-right: 10px;">
+            推荐课程
             <span style="font-size: 18px;color: #999999;font-weight: lighter">&nbsp;&nbsp;Courses</span>
           </h2>
-          <div style="height:1px;background-color: #b9b9b9;margin: -10px 10px 10px 18px"></div>
+          <div style="height:1px;background-color: #dcdcdc;margin: -10px 10px 10px 18px"></div>
         </div>
 
         <template v-for="c in courses">
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
-            <li @click="clickCourse(c.courseNo)" style="cursor:pointer;list-style-type:none;">
+            <li @click="clickCourse(c.courseNo)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
               <i class="lnr lnr-book" style="padding-right: 10px"></i><a>{{c.courseName}}
               <span style="float: right">[{{c.courseClassify}}]</span>
             </a></li>
@@ -33,16 +35,18 @@
       </el-container>
 
       <!-- 优秀教师 -->
-      <el-container style="flex-direction:column;margin: 15px 0 15px 15px;background-color: rgba(250,250,250,.8);border-radius: 10px">
+      <el-container style="flex-direction:column;margin: 15px 0 15px 15px;background-color: rgba(250,250,250,.5);border-radius: 10px">
         <div>
-          <h2 style="padding-left: 20px;">优秀教师
+          <h2 style="padding-left: 20px;">
+            <img src="../assets/image/pic2.png" style="margin-bottom: -10px;margin-right: 10px;">
+            优秀教师
             <span style="font-size: 18px;color: #999999;font-weight: lighter">&nbsp;&nbsp;Teachers</span>
           </h2>
-          <div style="height:1px;background-color: #b9b9b9;margin: -10px 10px 10px 18px"></div>
+          <div style="height:1px;background-color: #dcdcdc;margin: -10px 10px 10px 18px"></div>
         </div>
         <template v-for="t in teachers">
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
-            <li @click="clickTeacher(t.uid)" style="cursor:pointer;list-style-type:none;">
+            <li @click="clickTeacher(t.uid)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
               <i class="lnr lnr-graduation-hat" style="padding-right: 10px;font-size:20px"></i><a>{{t.name}}</a>
               <span style="float: right">[{{t.rank}}]</span>
             </li>
@@ -55,16 +59,18 @@
 
     <el-container>
       <!-- 热门新闻 -->
-      <el-container style="flex-direction:column;margin: 15px 0 15px 0;background-color: rgba(250,250,250,.8);border-radius: 10px">
+      <el-container style="flex-direction:column;margin: 15px 0 15px 0;background-color: rgba(250,250,250,.5);border-radius: 10px">
         <div>
-          <h2 style="padding-left: 20px;">热门新闻
+          <h2 style="padding-left: 20px;">
+            <img src="../assets/image/pic3.png" style="margin-bottom: -10px;margin-right: 10px;">
+            热门新闻
             <span style="font-size: 18px;color: #999999;font-weight: lighter">&nbsp;&nbsp;News</span>
           </h2>
-          <div style="height:2px;background-color: #b9b9b9;margin: -10px 10px 10px 18px"></div>
+          <div style="height:1px;background-color: #dcdcdc;margin: -10px 10px 10px 18px"></div>
         </div>
         <template v-for="n in news">
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
-            <li @click="onRowClick(n.title)" style="cursor:pointer;list-style-type:none;">
+            <li @click="onRowClick(n.title)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
               <i class="el-icon-paperclip" style="padding-right: 10px"></i>
               <a>{{n.title}}
               <span style="float: right">[{{n.pubDate}}]</span>
@@ -183,6 +189,9 @@ export default {
 
 <style scoped>
 h2{
+  color: #1357ac;
+}
+li:hover {
   color: #4089e5;
 }
 </style>

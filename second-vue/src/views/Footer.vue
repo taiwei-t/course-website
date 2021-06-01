@@ -3,7 +3,7 @@
     <div class="footer-center">
       <p>
         <span>
-          <a target="_blank" href="https://jxxy.cqnu.edu.cn/" style="text-decoration:none !important;color:#949699 !important;">
+          <a class="jxxy" target="_blank" href="https://jxxy.cqnu.edu.cn/">
             重庆师范大学计算机与信息科学学院
           </a>
         </span>版权所有<br/>联系地址：重庆师范大学大学城校区（邮编：000000）<br/>联系电话：（023）0000000000
@@ -33,5 +33,9 @@ export default {
 }
 .footer-center{
   height: 50px;
+}
+.jxxy{
+  text-decoration:none !important;
+  color:#949699 !important;
 }
 </style>

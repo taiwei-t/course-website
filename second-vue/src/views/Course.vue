@@ -78,6 +78,7 @@ export default {
   margin: 20px 0;
   padding: 20px;
   cursor: pointer;
+  transition: all ease 0.5s;/* 过度效果 */
 }
 .course span{
   color: #505458;
