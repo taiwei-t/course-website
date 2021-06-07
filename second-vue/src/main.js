@@ -7,7 +7,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store'
 import {findAllMenus} from "./config/menu";
 import "./common/style.css"
-
+import BaiduMap from 'vue-baidu-map'  //百度地图API
+Vue.use(BaiduMap, {
+    ak: 'imumHNUWeAFwzoORRw7cvgPAEdVw73iy'
+})
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
