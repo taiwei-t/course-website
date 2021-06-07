@@ -26,7 +26,7 @@
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
             <li @click="clickCourse(c.courseNo)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
               <i class="lnr lnr-book" style="padding-right: 10px"></i><a>{{c.courseName}}
-              <span style="float: right">[{{c.courseClassify}}]</span>
+              <span style="float: right">【{{c.courseClassify}}】</span>
             </a></li>
           </ul>
         </template>
@@ -48,7 +48,7 @@
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
             <li @click="clickTeacher(t.uid)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
               <i class="lnr lnr-graduation-hat" style="padding-right: 10px;font-size:20px"></i><a>{{t.name}}</a>
-              <span style="float: right">[{{t.rank}}]</span>
+              <span style="float: right">【{{t.rank}}】</span>
             </li>
           </ul>
         </template>
@@ -71,7 +71,7 @@
         <template v-for="n in news">
           <ul style="padding-left: 20px;padding-right: 10px;margin-block-start: 8px;margin-block-end: 8px;">
             <li @click="onRowClick(n.title)" style="cursor:pointer;list-style-type:none;margin-left: 10px;">
-              <i class="el-icon-paperclip" style="padding-right: 10px"></i>
+              <i class="el-icon-caret-right" style="padding-right: 10px"></i>
               <a>{{n.title}}
               <span style="float: right">[{{n.pubDate}}]</span>
               </a>

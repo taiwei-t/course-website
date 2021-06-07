@@ -60,8 +60,8 @@
     <div>
       <p>
         <span v-if="currentIndex === 0">没有了</span>
-        <span v-if="currentIndex !== 0" @click="preTeacher" style="cursor:pointer;">上一篇</span>
-        <span v-if="currentIndex !== this.ids.length-1" @click="nextTeacher" style="cursor:pointer;float: right">下一篇</span>
+        <span class="pre" v-if="currentIndex !== 0" @click="preTeacher">上一篇</span>
+        <span class="next" v-if="currentIndex !== this.ids.length-1" @click="nextTeacher">下一篇</span>
         <span v-if="currentIndex === this.ids.length-1" style="float: right">没有了</span>
       </p>
     </div>
@@ -130,5 +130,17 @@ export default {
 </script>
 
 <style scoped>
-
+.pre{
+  cursor:pointer;
+}
+.next{
+  cursor:pointer;
+  float: right;
+}
+.pre:hover{
+  color: #4089e5;
+}
+.next:hover{
+  color: #4089e5;
+}
 </style>

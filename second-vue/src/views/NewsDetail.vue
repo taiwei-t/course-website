@@ -34,6 +34,7 @@
          @click="goPreJournalism">
         上一篇：{{journalismTitles[preIndex]}}
       </a>
+        <p></p>
       <a v-if="nextIndex !== -1"
          style="cursor: pointer"
          align="left"
