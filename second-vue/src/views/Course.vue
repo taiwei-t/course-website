@@ -7,7 +7,7 @@
       </el-row>
     </div>
 
-    <div style="min-height: 480px;background-color: rgba(250,250,250,.7)">
+    <div style="min-height: 480px;">
       <p style="padding: 20px;font-size: 16px;border-bottom: solid #d5d7d9 3px">
         搜索到{{current.length}}门课程
       </p>
@@ -117,9 +117,9 @@ export default {
 <style scoped>
 .classify{
   margin-top: 50px;
-  /*margin-bottom: 50px;*/
   height: 350px;
   margin-right: 20px;
+  margin-left: 30px;
   padding: 10px;
   -webkit-box-shadow: 0 2px 10px 0 #dddddd;
   -moz-box-shadow: 0 2px 10px 0 #dddddd;
