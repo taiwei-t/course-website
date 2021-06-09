@@ -77,7 +77,7 @@
 
         <!-- 文本域 -->
         <el-form-item label="新闻内容" :label-width="formLabelWidth" prop="content">
-          <el-input v-model="form.content" type = 'textarea' autocomplete="off" placeholder="新闻简介"></el-input>
+          <el-input :autosize="{ minRows: 20, maxRows: 25}" v-model="form.content" type = 'textarea' autocomplete="off" placeholder="新闻简介"></el-input>
         </el-form-item>
 
         <!-- 作者 -->

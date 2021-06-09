@@ -17,10 +17,19 @@
       <template v-for="t in teachers">
         <!-- 单个item -->
         <div class="teacher" @click="clickTeacher(t.uid)">
-          <h3>{{t.name}}</h3>
-          <p>
-            <span>职称：{{t.rank}}</span>
-          </p>
+          <!--          <h3>{{t.name}}</h3>-->
+          <!--          <p>-->
+          <!--            <span>职称：{{t.rank}}</span>-->
+          <!--          </p>-->
+          <el-card :body-style="{ padding: '0px' }" shadow="hover">
+            <img src="../assets/image/OIP.jpg" class="image" style="object-fit: cover">
+            <div style="padding: 14px;">
+              <span style="font-size: 24px">{{t.name}}</span>
+              <p>
+                <span>职称：{{t.rank}}</span>
+              </p>
+            </div>
+          </el-card>
         </div>
       </template>
     </div>
@@ -93,11 +102,6 @@ export default {
 }
 .teacher span{
   color: #505458;
-}
-.teacher:hover {
-  -webkit-box-shadow: #ccc 0 10px 10px;
-  -moz-box-shadow: #ccc 0 10px 10px;
-  box-shadow: #ccc 0 10px 10px;
 }
 .teacher:hover h3{
   color: #82b5ea;

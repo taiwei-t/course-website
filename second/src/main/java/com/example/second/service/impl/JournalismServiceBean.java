@@ -2,15 +2,12 @@ package com.example.second.service.impl;
 
 import com.example.second.dao.JournalismDao;
 import com.example.second.entity.Journalism;
-import com.example.second.entity.Teacher;
 import com.example.second.exception.ValidateException;
 import com.example.second.service.JournalismService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,10 +42,6 @@ public class JournalismServiceBean implements JournalismService {
         } else {
             throw new ValidateException("500", errors.toString());
         }
-    }
-
-    public Journalism findJournalismByUid(Long uid) {
-        return this.journalismDao.findJournalismByUid(uid);
     }
 
     public Journalism findJournalismByTitle(String title) {
