@@ -22,7 +22,7 @@
           <!--            <span>职称：{{t.rank}}</span>-->
           <!--          </p>-->
           <el-card :body-style="{ padding: '0px' }" shadow="hover">
-            <img src="../assets/image/OIP.jpg" class="image" style="object-fit: cover">
+            <img :src="require('../assets/image/' + t.picture_path)" class="image" style="object-fit: cover">
             <div style="padding: 14px;">
               <span style="font-size: 24px">{{t.name}}</span>
               <p>
@@ -60,7 +60,7 @@ export default {
       this.$axios.get("/public/findAllTeacher")
           .then((res) => {
             this.teachers = res.data
-            // console.log(this.teachers)
+            console.log(this.teachers)
             for (let i in this.teachers){
               this.ids.push(this.teachers[i].uid)
             }

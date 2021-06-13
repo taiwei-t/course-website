@@ -20,6 +20,7 @@
         <result property="research" column="research" jdbcType="VARCHAR"/>
         <result property="hobby" column="hobby" jdbcType="VARCHAR"/>
         <result property="college" column="college" jdbcType="VARCHAR"/>
+        <result property="picture_path" column="picture_path" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
@@ -40,7 +41,8 @@
                `evaluation`,
                `research`,
                `hobby`,
-               `college`
+               `college`,
+               `picture_path`
         from teacher
         where uid = #{uid}
     </select>
@@ -54,7 +56,7 @@
     </select>
 
     <select id="findTeacherName" resultType="map">
-        select `uid`,`name`,`rank` from teacher
+        select `uid`,`name`,`rank`, `picture_path` from teacher
     </select>
 
     <delete id="deleteTeacherByIds" parameterType="com.example.second.entity.Teacher">
@@ -66,8 +68,8 @@
 
     <!--新增所有列-->
     <insert id="insert" parameterType="com.example.second.entity.Teacher">
-        insert into teacher(`uid`, `name`, `age`, `sex`, `party`, `address`, `phone`, `emil`, `rank`, `degree`, `course`, `brief`, `hiredate`, `evaluation`,`research`,`hobby`,`college`)
-        values (#{uid}, #{name}, #{age}, #{sex}, #{party}, #{address}, #{phone}, #{emil}, #{rank}, #{degree}, #{course}, #{brief}, #{hiredate}, #{evaluation},#{research},#{hobby},#{college})
+        insert into teacher(`uid`, `name`, `age`, `sex`, `party`, `address`, `phone`, `emil`, `rank`, `degree`, `course`, `brief`, `hiredate`, `evaluation`,`research`,`hobby`,`college`, `picture_path`)
+        values (#{uid}, #{name}, #{age}, #{sex}, #{party}, #{address}, #{phone}, #{emil}, #{rank}, #{degree}, #{course}, #{brief}, #{hiredate}, #{evaluation},#{research},#{hobby},#{college},#{picture_path})
     </insert>
 
     <!--通过主键修改数据-->
@@ -121,6 +123,9 @@
             </if>
             <if test="college != null">
                 `college` = #{college,jdbcType=VARCHAR},
+            </if>
+            <if test="picture_path != null">
+                `picture_path` = #{picture_path,jdbcType=VARCHAR},
             </if>
         </set>
         where  `uid` = #{uid,jdbcType=BIGINT}

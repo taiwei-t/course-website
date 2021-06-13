@@ -103,6 +103,8 @@ public class Teacher {
 //    @NotBlank(message = "学院不能为空")
     private String college;
 
+    private String picture_path;
+
     public Long getUid() {
         return uid;
     }
@@ -237,5 +239,13 @@ public class Teacher {
 
     public void setCollege(String college) {
         this.college = college;
+    }
+
+    public String getPicture_path() {
+        return picture_path;
+    }
+
+    public void setPicture_path(String picture_path) {
+        this.picture_path = picture_path;
     }
 }

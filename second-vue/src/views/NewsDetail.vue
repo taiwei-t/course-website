@@ -12,8 +12,8 @@
           <p align="right" style="color: #949699">{{journalism.pubDate}}</p>
           <hr></hr>
 
-          <!--新闻内容,以html格式插入值-->
-          <p style="text-indent: 2em;
+          <!--新闻内容-->
+          <p style="text-indent: 2em;line-height: 30px;
              white-space: pre-wrap">
             {{journalism.content}}
           </p>
