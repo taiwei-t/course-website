@@ -22,7 +22,7 @@
           <!--            <span>职称：{{t.rank}}</span>-->
           <!--          </p>-->
           <el-card :body-style="{ padding: '0px' }" shadow="hover">
-            <img :src="require('../assets/image/' + t.picture_path)" class="image" style="object-fit: cover">
+            <el-image :src="require('../assets/image/' + t.picture_path)" class="image" :fit="cover" style="width: 250px;height: 320px"></el-image>
             <div style="padding: 14px;">
               <span style="font-size: 24px">{{t.name}}</span>
               <p>

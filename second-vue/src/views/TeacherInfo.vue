@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="bgImg" style="padding: 10px 10px;margin: -20px 0">
     <!-- 页头 -->
     <el-page-header
         @back="goBack"
@@ -10,14 +10,14 @@
     <div style="margin-top: 50px;margin-left: 100px">
       <el-row :gutter="30">
         <el-col span="8">
-          <img :src="require('../assets/image/' + teacher.picture_path)" style="object-fit: cover;border-radius: 5px;">
+          <el-image :src="require('../assets/image/' + teacher.picture_path)" style="border-radius: 5px;width: 280px;height: 360px;margin-left: 25px"></el-image>
           <h2 align="center" style="font-family: 楷体;font-size: 28px;">{{teacher.name}}</h2>
         </el-col>
 
         <el-col span="14">
           <div class="grid-content bg-purple-light">
             <div class="title-bg"><h3 class="title">基本情况</h3></div>
-            <div style="display: grid;grid-template-columns: repeat(5, 20%)">
+            <div style="display: grid;grid-template-columns: repeat(4, 25%)">
               <p>性别：{{teacher.sex}}</p>
               <p>年龄：{{teacher.age}}</p>
               <p>职称：{{teacher.rank}}</p>
@@ -75,7 +75,12 @@ export default {
       teacher: [],
       ids: [],
       currentId: '',
-      currentIndex: -1
+      currentIndex: -1,
+      bgImg: {
+        backgroundImage: "url(" + require("../assets/image/bg.png") + ")",
+        backgroundRepeat: "repeat",
+        backgroundColor: "#cccccc"
+      },
     }
   },
   created() {

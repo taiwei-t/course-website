@@ -42,7 +42,7 @@ export default {
     return {
       journalisms:[], //后端返回的数组
       currentPage: 1, //默认当前页
-      pageSize: 7, //每页数据量
+      pageSize: 10, //每页数据量
       total: 130 ,//默认总数据量
     };
   },
