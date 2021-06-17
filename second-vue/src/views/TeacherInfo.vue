@@ -137,12 +137,14 @@ export default {
 .title-bg{
   background-color: #eeeeee;
   border-radius: 5px;
+  height: 30px;
 }
 .title{
   color: #ffffff;
   background-color: #373d4b;
   padding-left: 20px;
   width: 100px;
+  height:30px;
   border-radius: 5px;
 }
 .pre{

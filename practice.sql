@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 15/06/2021 21:33:27
+ Date: 17/06/2021 13:30:04
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `course`  (
   `teacher_id` bigint NOT NULL COMMENT '授课老师',
   `textbook` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '教材',
   PRIMARY KEY (`uid`, `course_no`, `teacher_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of course
@@ -91,7 +91,7 @@ CREATE TABLE `journalism`  (
   `content` varchar(4500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `author` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of journalism
@@ -131,7 +131,7 @@ CREATE TABLE `menu`  (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `component` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu
@@ -156,7 +156,7 @@ CREATE TABLE `menu_role`  (
   `mid` int NULL DEFAULT NULL,
   `rid` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu_role
@@ -179,7 +179,7 @@ CREATE TABLE `role`  (
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `nameZh` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of role
@@ -267,14 +267,14 @@ CREATE TABLE `teacher`  (
   `college` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '学院',
   `picture_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '图片',
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of teacher
 -- ----------------------------
-INSERT INTO `teacher` VALUES (1, '刘晓燕', 32, '女', 1, '北京市,市辖区,东城区', '15310842544', 'zhangsan@qq.com', '教授', '硕士', '操作系统,Java程序设计,C语言程序设计', '你好，世界！\n21321323\n1323123213\n123123213', '2021-03-29', 4, '人工智能,图像处理,Web开发,电子商务', '运动,音乐', '文学院', 'liuxiaoyan.jpg');
-INSERT INTO `teacher` VALUES (4, '王鑫', 34, '男', 0, '天津市,市辖区,河东区', '13412341234', 'open-src@qq.com', '副教授', '硕士', '数据结构,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。', '2016-03-17', 4, '人工智能,Web开发', '阅读,舞蹈', '计算机于信息科学学院', 'wangxin.jpg');
-INSERT INTO `teacher` VALUES (5, '周一帆', 28, '女', 1, '河北省,秦皇岛市,北戴河区', '15723495844', 'hello@cqnu.edu.cn', '副教授', '博士', '数据库原理,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2021-03-15', 5, '人工智能', '音乐,游戏', '教育科学学院', 'zhouyifan.jpg');
+INSERT INTO `teacher` VALUES (1, '刘晓燕', 32, '女', 1, '北京市,市辖区,东城区', '15310842544', 'zhangsan@qq.com', '教授', '硕士', '操作系统,Java程序设计,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。', '2021-03-29', 4, '人工智能,图像处理,Web开发,电子商务', '运动,音乐,阅读,舞蹈', '文学院', 'liuxiaoyan.jpg');
+INSERT INTO `teacher` VALUES (4, '王鑫', 34, '男', 0, '天津市,市辖区,河东区', '13412341234', 'open-src@qq.com', '副教授', '硕士', '数据结构,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。', '2016-03-17', 4, '人工智能,Web开发', '阅读,舞蹈,游戏,音乐,绘画', '计算机于信息科学学院', 'wangxin.jpg');
+INSERT INTO `teacher` VALUES (5, '周一帆', 28, '女', 1, '河北省,秦皇岛市,北戴河区', '15723495844', 'hello@cqnu.edu.cn', '副教授', '博士', '数据库原理,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2021-03-15', 5, '人工智能', '音乐,游戏,舞蹈,绘画', '教育科学学院', 'zhouyifan.jpg');
 INSERT INTO `teacher` VALUES (6, '武中祥', 27, '男', 0, '山西省,长治市,武乡县', '15310843486', 'zsstudy@cqnu.deu.cn', '教授', '硕士', 'Java程序设计,数据结构', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2014-03-05', 4, '人工智能,Web开发', '阅读,游戏', '计算机于信息科学学院', 'OIP.jpg');
 INSERT INTO `teacher` VALUES (8, '李永乐', 34, '男', 0, '重庆市,市辖区,万州区', '15923492358', '12313@cqnu.edu.cn', '副教授', '博士', '操作系统,C语言程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2011-08-10', 4, '人工智能', '阅读,舞蹈', '计算机于信息科学学院', 'liyongle.jpg');
 INSERT INTO `teacher` VALUES (10, '唐迟', 30, '男', 0, '山西省,运城市,闻喜县', '15936541422', '123@qwq.com', '讲师', '硕士', '面向对象程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2017-02-27', 3, '人工智能', '阅读,舞蹈', '计算机于信息科学学院', 'tangchi.jpg');
@@ -283,7 +283,7 @@ INSERT INTO `teacher` VALUES (12, '张玉', 31, '女', 1, '安徽省,蚌埠市,�
 INSERT INTO `teacher` VALUES (13, '黄蓉', 45, '女 ', 1, '湖南省,株洲市,荷塘区', '13956987854', '123@qwe.cn', '讲师', '硕士', 'C语言程序设计,软件工程导论', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2013-03-11', 4, '人工智能', '阅读,舞蹈', '', 'liuxiaoyan.jpg');
 INSERT INTO `teacher` VALUES (14, '范进', 28, '男', 1, '山东省,淄博市,张店区', '15923698745', '123@23.com', '副教授', '博士', 'C语言程序设计,计算机导论,Java程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2003-03-13', 4, '人工智能', '阅读,舞蹈', '', 'wangxin.jpg');
 INSERT INTO `teacher` VALUES (15, '郭靖', 40, '男', 0, '湖南省,株洲市,荷塘区', '15923698745', '123@qwe.cn', '教授', '博士', '计算机组成原理,面向对象程序设计', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。 在清华校内开设本科生课程：《计算机程序设计基础》、《C++语言程序设计》和《Java语言程序设计》;研究生课程有面向对象的软件开发技术', '2013-03-11', 3, '人工智能,Web开发', '音乐,游戏', '计算机于信息科学学院', 'liyongle.jpg');
-INSERT INTO `teacher` VALUES (16, '郭襄', 20, '女', 0, '山西省,运城市,闻喜县', '13956987854', '234@dad.com', '讲师', '硕士', 'Java程序设计,数据结构', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。', '2020-06-10', 4, '人工智能,图像处理,Web开发,电子商务', '阅读,游戏', '教育科学学院', 'liuxiaoyan.jpg');
+INSERT INTO `teacher` VALUES (16, '郭襄', 20, '女', 0, '山西省,运城市,闻喜县', '13956987854', '234@dad.com', '讲师', '硕士', 'Java程序设计,数据结构', '全国高等院校计算机基础教育研究会常务理事；文科计算机基础教学指导分委员会专家；ISO国际标准组织专家及标准编辑；全国信息技术标准化技术委员会教育技术分技术委员会委员兼秘书长。主要从事计算机教育及教育信息化研究，主持和参加多项国家863、支撑计划课题和教育部课题。 主编出版教材20部，其中《C++语言程序设计》获教育部自然科学奖和国家级精品教材称号。起草教育信息化相关国家标准5部、国际标准1部。 获国家级教学成果奖、北京市教学成果奖、教育部自然科学奖、教育部科技进步奖、北京市科技进步奖、电子学会科技进步奖等9项国家级、教育部、北京市奖励。', '2020-06-10', 4, '人工智能,图像处理,Web开发,电子商务', '阅读,游戏', '教育科学学院', 'zhouyifan.jpg');
 
 -- ----------------------------
 -- Table structure for teacher_copy
@@ -294,7 +294,7 @@ CREATE TABLE `teacher_copy`  (
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '姓名',
   `rank` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of teacher_copy
@@ -321,7 +321,7 @@ CREATE TABLE `user`  (
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of user
@@ -342,7 +342,7 @@ CREATE TABLE `user_role`  (
   `uid` int NULL DEFAULT NULL,
   `rid` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_role
